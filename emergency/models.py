@@ -8,7 +8,7 @@ class Ambulance(models.Model):
         ('special', 'Specially Equipped Ambulance'),
     ]
 
-    traffic_code = models.CharField(max_length=10, verbose_name="Traffic Code")
+    #traffic_code = models.CharField(max_length=10, verbose_name="Traffic Code")
     plate = models.CharField(max_length=10, unique=True, verbose_name="Plate")
     ambulance_type = models.CharField(max_length=20, choices=AMBULANCE_TYPES, verbose_name="Ambulance Type")
     active = models.BooleanField(default=True, verbose_name="Is Active?")
@@ -28,7 +28,7 @@ class StationInfo(models.Model):
     
     # Detailed address information
     city = models.CharField(max_length=50, verbose_name="City")
-    district = models.CharField(max_length=50, verbose_name="District")
+    #district = models.CharField(max_length=50, verbose_name="District")
     neighborhood = models.CharField(max_length=100, verbose_name="Neighborhood")
     street = models.CharField(max_length=100, verbose_name="Street")
     building_no = models.CharField(max_length=20, verbose_name="Building No")
@@ -48,7 +48,7 @@ class StationInfo(models.Model):
 
     @property
     def full_address(self):
-        return f"{self.neighborhood} Neighborhood, {self.street} Street, No:{self.building_no} {f'Floor:{self.floor}' if self.floor else ''} {self.district}/{self.city}"
+        return f"{self.neighborhood} Neighborhood, {self.street} Street, No:{self.building_no} {f'Floor:{self.floor}' if self.floor else ''} {self.Neighborhood}/{self.city}"
 
     class Meta:
         verbose_name = "Station Info"
