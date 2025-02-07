@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_filters',
-    'emergency'
+    'emergency',
+    'django_extensions'
 ]
 
 MIDDLEWARE = [

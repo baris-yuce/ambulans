@@ -72,12 +72,21 @@ class ViewSet(ViewSet):
     model = Ambulance
     serializer = AmbulanceSerializer
 
+
+url -> path('urlpattern', View.as_view, name='urlname')
+{% url 'app_label:urlname' %} -> restframework için karşılığı BASENAME
+
 """
 
-from django.urls import path
+from rest_framework import routers
 
-from . import views
+from . import viewsets
 
-urlpatterns = [
-    path('ambulance/', views.AmbulanceListView.as_view(), name="ambulance")
-]
+
+router = routers.DefaultRouter()
+
+router.register('ambulance/', viewset=viewsets.AmbulanceViewSet, basename='ambulance')
+router.register('station/', viewset=viewsets.StationInfoViewSet, basename='station')
+router.register('equipment/', viewset=viewsets.StandardEquipmentViewSet, basename='equipment')
+
+urlpatterns = router.urls
