@@ -40,4 +40,7 @@ class StandardEquipmentSerializer(serializers.ModelSerializer):
     dict[key] = value
     a['pk'] -> 1
     a['traffic_code'] -> "34 ABC 123"
+
+
+
     """
